@@ -13,15 +13,15 @@
 // le texte des boites
 	
   let stepsData = [
-    { "text": "First <mark>step</mark> text" },
+    { "text": "Voici un graphique avec, <mark style='background-color: #4328E7; color:white; padding: 2px; border-radius: 5px;'><strong>sur la courbe bleue</strong></mark>, l'√©volution du prix du mazout" },
     { "text": "Second step text" },
     { "text": "Third step text" },
 		{ "text": "Fourth step text" },
 		{ "text": "Fifth step text" },
   ];
 
-	// Le "moteur" du scrollytelling qui utilise l'Intersection Observer API (en gros, le code observe ce qu'il y a ‡ l'Ècran)
-	// Áa on ne touche pas sinon tout se casse !
+	// Le "moteur" du scrollytelling qui utilise l'Intersection Observer API (en gros, le code observe ce qu'il y a √† l'√©cran)
+	// √ßa on ne touche pas sinon tout se casse !
 
   onMount(() => {
     observer = new IntersectionObserver((entries) => {
@@ -74,6 +74,15 @@
 <LoremIpsum/>
 
 <style>
+
+	/* Ici les valeurs pour l'ensemble de la page > 
+	peut n√©cessiter des modifs pour que le graphe soit tjs bien visible*/
+
+	:global(body) {
+    background-color: white; 
+		color: black;
+		font-family: 'Montserrat', sans-serif; 
+  }
 	*{
 		box-sizing: border-box;
 	}
@@ -133,7 +142,7 @@
     margin: auto;
   }
 
-	/* Pour adapter la vue en mobile: steps centrÈes par dessus le graphique */
+	/* Pour adapter la vue en mobile: steps centr√©es par dessus le graphique */
 
   @media screen and (max-width: 768px) {
     .section-container {
