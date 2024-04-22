@@ -1,5 +1,5 @@
 <script>
-  import { onMount, onDestroy } from 'svelte';
+  import { onMount, onDestroy } from 'svelte'; 
 
 	import LoremIpsum from './LoremIpsum.svelte'
 
@@ -13,13 +13,13 @@
 // le texte des boites
 	
   let stepsData = [
-    { "text": "L'agriculture bio n'était pas très populaire <mark style='background-color: #77bb41; color:white; padding: 2px; border-radius: 5px;'><strong>dans les années 2000</strong></mark>, mais connait un regain en 2004." },
-    { "text": "Un véritable boom <mark style='background-color: #77bb41; color:white; padding: 2px; border-radius: 5px;'><strong>à partir de 2005</strong></mark>, jusqu'en 2013."},
-    { "text": "L'agriculture Bio n'a cessée de croitre<mark style='background-color: #77bb41; color:white; padding: 2px; border-radius: 5px;'><strong>depuis 2014</strong></mark>, pour atteindre un pic en 2022."},
+    { "text": "L'agriculture bio n'Ã©tait pas trÃ¨s populaire <mark style='background-color: #77bb41; color:white; padding: 2px; border-radius: 5px;'><strong>dans les annÃ©es 2000</strong></mark>, mais connait un regain en 2004." },
+    { "text": "Un vÃ©ritable boom <mark style='background-color: #77bb41; color:white; padding: 2px; border-radius: 5px;'><strong>Ã  partir de 2005</strong></mark>, jusqu'en 2013."},
+    { "text": "L'agriculture Bio n'a cessÃ©e de croitre<mark style='background-color: #77bb41; color:white; padding: 2px; border-radius: 5px;'><strong>depuis 2014</strong></mark>, pour atteindre un pic en 2022."},
   ];
 
-	// Le "moteur" du scrollytelling qui utilise l'Intersection Observer API (en gros, le code observe ce qu'il y a à l'écran)
-	// ça on ne touche pas sinon tout se casse !
+	// Le "moteur" du scrollytelling qui utilise l'Intersection Observer API (en gros, le code observe ce qu'il y a Ã  l'Ã©cran)
+	// Ã§a on ne touche pas sinon tout se casse !
 
   onMount(() => {
     observer = new IntersectionObserver((entries) => {
@@ -41,7 +41,7 @@
   });
 </script>
 
-<h1><u>L'évolution de l'agriculture bio en 20 ans</u></h1>
+<h1><u>L'Ã©volution de l'agriculture bio en 20 ans</u></h1>
 
 
 <Introduction/>
@@ -74,9 +74,9 @@
 <style>
 
 	/* Ici les valeurs pour l'ensemble de la page > 
-	peut nécessiter des modifs de couleurs dans Flourish 
+	peut nÃ©cessiter des modifs de couleurs dans Flourish 
 	pour s'assurer que le graphe soit tjs bien visible (titre de graphique noir sur
-	fond de page noir,ça ne se voit pas bien...*/
+	fond de page noir,Ã§a ne se voit pas bien...*/
 
 	:global(body) {
     background-color: lightgrey; 
@@ -141,7 +141,7 @@
     margin: auto;
   }
 
-	/* Pour adapter la vue en mobile: steps centrées par dessus le graphique */
+	/* Pour adapter la vue en mobile: steps centrÃ©es par dessus le graphique */
 
   @media screen and (max-width: 768px) {
     .section-container {
