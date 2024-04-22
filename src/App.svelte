@@ -3,25 +3,23 @@
 
 	import LoremIpsum from './LoremIpsum.svelte'
 
-	import Explication from './Explication.svelte'
+	import Introduction from './Introduction.svelte'
 
   let activeStepIndex = 0;
   let observer;
   let scrollyRef;
-  let flourishURL = "https://flo.uri.sh/story/2266911/embed"; // Le lien vers la story Flourish
+  let flourishID = "2323932"; // L'ID de la story Flourish
 
 // le texte des boites
 	
   let stepsData = [
-    { "text": "Voici un graphique avec, <mark style='background-color: #4328E7; color:white; padding: 2px; border-radius: 5px;'><strong>sur la courbe bleue</strong></mark>, l'Ã©volution du prix du mazout" },
-    { "text": "Second step text" },
-    { "text": "Third step text" },
-		{ "text": "Fourth step text" },
-		{ "text": "Fifth step text" },
+    { "text": "L'agriculture bio n'était pas très populaire <mark style='background-color: #77bb41; color:white; padding: 2px; border-radius: 5px;'><strong>dans les années 2000</strong></mark>, mais connait un regain en 2004." },
+    { "text": "Un véritable boom <mark style='background-color: #77bb41; color:white; padding: 2px; border-radius: 5px;'><strong>à partir de 2005</strong></mark>, jusqu'en 2013."},
+    { "text": "L'agriculture Bio n'a cessée de croitre<mark style='background-color: #77bb41; color:white; padding: 2px; border-radius: 5px;'><strong>depuis 2014</strong></mark>, pour atteindre un pic en 2022."},
   ];
 
-	// Le "moteur" du scrollytelling qui utilise l'Intersection Observer API (en gros, le code observe ce qu'il y a Ã  l'Ã©cran)
-	// Ã§a on ne touche pas sinon tout se casse !
+	// Le "moteur" du scrollytelling qui utilise l'Intersection Observer API (en gros, le code observe ce qu'il y a à l'écran)
+	// ça on ne touche pas sinon tout se casse !
 
   onMount(() => {
     observer = new IntersectionObserver((entries) => {
@@ -43,9 +41,10 @@
   });
 </script>
 
-<h1>Ceci est le titre de la page</h1>
+<h1><u>L'évolution de l'agriculture bio en 20 ans</u></h1>
 
-<Explication/>
+
+<Introduction/>
 
 <!-- si tu affiches la step_0, alors montre la slide_0 -->
 <!-- si tu affiches la step_1, alors montre la slide_1 -->
@@ -65,31 +64,32 @@
 	
   <div class="sticky-background">
     <!-- On affiche la slide Flourish en fonction de l'index -->
-      <iframe src={`${flourishURL}#slide-${activeStepIndex}`} title="Interactive or visual content" class="flourish-embed" frameborder="0" scrolling="no" style="width:100%;height:100vh;"></iframe>
+		<iframe src={`https://flo.uri.sh/story/${flourishID}/embed#slide-${activeStepIndex}`} title="Contenu interactif ou visuel" class="flourish-embed" frameborder="0" scrolling="no" style="width:100%;height:100vh;"></iframe>
   </div>
 
 
 </section>
 
-<LoremIpsum/>
 
 <style>
 
 	/* Ici les valeurs pour l'ensemble de la page > 
-	peut nÃ©cessiter des modifs pour que le graphe soit tjs bien visible*/
+	peut nécessiter des modifs de couleurs dans Flourish 
+	pour s'assurer que le graphe soit tjs bien visible (titre de graphique noir sur
+	fond de page noir,ça ne se voit pas bien...*/
 
 	:global(body) {
-    background-color: white; 
+    background-color: lightgrey; 
 		color: black;
-		font-family: 'Montserrat', sans-serif; 
+		font-family: 'calibri', sans-serif; 
   }
+	
 	*{
 		box-sizing: border-box;
 	}
 	.section-container {
     margin-top: 1em;
     text-align: center;
-    transition: background 100ms;
     display: flex;
     flex-direction: row; 
 		
@@ -121,19 +121,18 @@
     position: relative;
     z-index: 2;
     width: 100%;
-		
   }
 
   .step-content {
     background-color: rgba(245, 245, 245, 0.8);
 		box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
     color: black;
-    border-radius: 10px;
+    border-radius: 9px;
+		border: 1px solid green;
     padding: 0.5rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: background 500ms ease;
     z-index: 10;
     font-size: 1rem;
     text-align: left;
@@ -142,7 +141,7 @@
     margin: auto;
   }
 
-	/* Pour adapter la vue en mobile: steps centrÃ©es par dessus le graphique */
+	/* Pour adapter la vue en mobile: steps centrées par dessus le graphique */
 
   @media screen and (max-width: 768px) {
     .section-container {
